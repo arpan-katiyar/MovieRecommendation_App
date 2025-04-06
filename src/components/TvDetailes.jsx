@@ -179,10 +179,10 @@ function TvDetailes() {
       {/* part-5 recommondations */}
       <hr className="h-[2px] bg-zinc-400 mt-5"></hr>
       <h1 className="text-3xl font-bold text-white mb-3 mt-3">
-        Recommandations & Similar stuff
+        Recommendations & Similar stuff
       </h1>
       <HorizontalCards
-        data={info.recommandations ? info.recommandations : info.similar}
+        data={info.recommendations ? info.recommendations : info.similar}
       />
       <Outlet />
     </div>

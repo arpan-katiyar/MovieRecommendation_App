@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import noimage from "/noimage.webp";
 
 function HorizontalCards({ data }) {
   return data.length > 0 ? (
@@ -13,9 +14,13 @@ function HorizontalCards({ data }) {
             >
               <img
                 className="w-full h-[50%] object-cover"
-                src={`https://image.tmdb.org/t/p/original/${
+                src={
                   t.backdrop_path || t.poster_path
-                }`}
+                    ? `https://image.tmdb.org/t/p/original/${
+                        t.backdrop_path || t.poster_path
+                      }`
+                    : noimage
+                }
               ></img>
               <div className="m-2">
                 <h1 className=" font-semibold text-white text-xl ">

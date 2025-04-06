@@ -142,8 +142,8 @@ const {pathname}=  useLocation()
       </div>
       {/* part-4 recommondations */}
       <hr className="h-[2px] bg-zinc-400"></hr>
-      <h1 className="text-3xl font-bold text-white mb-3 mt-3">Recommandations & Similar stuff</h1>
-      <HorizontalCards data={info.recommandations ? info.recommandations : info.similar} />
+      <h1 className="text-3xl font-bold text-white mb-3 mt-3">Recommendations & Similar stuff</h1>
+      <HorizontalCards data={info.recommendations ? info.recommendations : info.similar} />
       <Outlet />
       
     </div>
