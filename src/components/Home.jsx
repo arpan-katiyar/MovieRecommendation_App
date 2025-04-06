@@ -51,7 +51,10 @@ function Home() {
         <h1 className="text-3xl font-bold   text-zinc-400">Trending</h1>
         <Dropdown title='filter' options={["tv","movie","all"]} func={(e)=>setCategory(e.target.value)} />
       </div>
-          <HorizontalCards data={trending}  />
+      <div className="pl-[4vh]">
+      <HorizontalCards data={trending}  />
+      </div>
+          
         </div>
       </div>
     </>

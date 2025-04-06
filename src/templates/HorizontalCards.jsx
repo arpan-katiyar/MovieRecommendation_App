@@ -2,18 +2,18 @@ import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
 function HorizontalCards({ data }) {
-  return (
-    <div className="w-full   p-[4vh] ">
+  return (data.length>0?
+    <div className="w-full  ">
       <div className=" w-full  flex overflow-x-auto overflow-y-hidden ">
         {data.map((t, i) => {
           return (
             <Link
               to={`/${t.media_type}/Detail/${t.id}`}
               key={i}
-              className="min-w-[15%] min-h-[50vh]   bg-zinc-900 mr-3 mb-5"
+              className="min-w-[17%] min-h-[60vh]   bg-zinc-900 mr-3 mb-5"
             >
               <img
-                className="w-full h-[50%] object-cover"
+                className="w-full h-[60%] object-cover"
                 src={`https://image.tmdb.org/t/p/original/${
                   t.backdrop_path || t.poster_path
                 }`}
@@ -32,7 +32,7 @@ function HorizontalCards({ data }) {
         })}
       </div>
     </div>
-  );
+  :<h1 className="text-3xl text-white font-black text-center mt-5">Nothing to show</h1>);
 }
 
 export default HorizontalCards;

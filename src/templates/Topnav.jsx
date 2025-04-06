@@ -36,7 +36,7 @@ function Topnav() {
 
       <div className=" z-50 absolute bg-zinc-200 w-[80%] max-h-[50vh] top-[100%] left-[7.5%] overflow-auto rounded-md">
         {searches.map((m, i) => (
-          <Link
+          <Link to={`/${m.media_type}/Detail/${m.id}`}
             key={i}
             className="hover:text-black hover:bg-zinc-300 flex px-4 py-2 items-center justify-start border-b-2 border-zinc-100"
           >
