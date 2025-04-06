@@ -1,4 +1,4 @@
-import NotFound404 from "/404.jpg";
+import NotFound404 from "/404.gif";
 function NotFound() {
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-black">

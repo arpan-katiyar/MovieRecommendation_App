@@ -25,7 +25,9 @@ function App() {
           <Route path="/movie/Detail/:id/trailer" element={<Trailer/>} />
         </Route>
         <Route path="/person/Detail/:id" element={<PersonDetails />}></Route>
-        <Route path="/tv/Detail/:id" element={<TvDetailes />}></Route>
+        <Route path="/tv/Detail/:id" element={<TvDetailes />}>
+        <Route path="/tv/Detail/:id/trailer" element={<Trailer/>} />
+        </Route>
         <Route path="*" element={<NotFound />}></Route>
 
       </Routes>

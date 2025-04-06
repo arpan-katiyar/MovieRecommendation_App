@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { asyncLoadMovie, removeMovie } from "../store/actions/movieActions";
@@ -26,7 +26,7 @@ const {pathname}=  useLocation()
         backgroundSize: "cover",
         // backgroundRepeat:"no-repeat"
       }}
-      className="w-screen  px-[10%] text-white"
+      className="w-screen  px-[10%] py-[2%] text-white"
     >
       <nav className="w-full h-[10vh] text-zinc-100 flex gap-10 items-center  text-xl">
         <Link
