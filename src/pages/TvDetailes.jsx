@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import { asyncLoadTv, removeTv } from "../store/actions/tvActions";
 import Loading from "./Loading";
-import HorizontalCards from "../templates/HorizontalCards";
+import HorizontalCards from "../components/HorizontalCards";
 import noimage from "/noimage.webp";
 function TvDetailes() {
   const { pathname } = useLocation();
@@ -159,21 +159,28 @@ function TvDetailes() {
       <h1 className="text-3xl font-bold text-white mb-3 mt-3">Seasons</h1>
 
       <div className="w-full  flex  overflow-y-hidden ">
-        {info.details.seasons.length >0?info.details.seasons.map((s, i) => (
-          <div className="w-[20vw] mr-[2%] mb-5" key={i}>
-            <img key={i}
-              className="object-cover min-w-[12vw] h-[30vh] shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
-              src={
-                s.poster_path
-                  ? `https://image.tmdb.org/t/p/original/${s.poster_path}`
-                  : noimage
-              }
-            ></img>
-            <h1 className="text-xl text-zinc-400 font-semibold mt-2">
-              {s.name || s.title || s.original_name || s.original_data}
-            </h1>
-          </div >
-        )):<h1 className="text-3xl text-white font-black text-center mt-5">Nothing to show</h1>}
+        {info.details.seasons.length > 0 ? (
+          info.details.seasons.map((s, i) => (
+            <div className="w-[20vw] mr-[2%] mb-5" key={i}>
+              <img
+                key={i}
+                className="object-cover min-w-[12vw] h-[30vh] shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
+                src={
+                  s.poster_path
+                    ? `https://image.tmdb.org/t/p/original/${s.poster_path}`
+                    : noimage
+                }
+              ></img>
+              <h1 className="text-xl text-zinc-400 font-semibold mt-2">
+                {s.name || s.title || s.original_name || s.original_data}
+              </h1>
+            </div>
+          ))
+        ) : (
+          <h1 className="text-3xl text-white font-black text-center mt-5">
+            Nothing to show
+          </h1>
+        )}
       </div>
 
       {/* part-5 recommondations */}

@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
-import Cards from "../templates/Cards";
+import Cards from "../components/Cards";
 import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useNavigate } from "react-router-dom";
-import Topnav from "../templates/Topnav";
-import Dropdown from "../templates/Dropdown";
+import Topnav from "../components/Topnav";
+import Dropdown from "../components/Dropdown";
 
 function Popular() {
-  
   const navigate = useNavigate();
   const [category, setCategory] = useState("movie");
   const [popular, setPopular] = useState([]);

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import axios from "../utils/axios";
 import { useNavigate } from "react-router-dom";
-import Topnav from "../templates/Topnav";
+import Topnav from "../components/Topnav";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Cards from "../templates/Cards";
+import Cards from "../components/Cards";
 function People() {
   const navigate = useNavigate();
   const [people, setPeople] = useState([]);
@@ -56,7 +56,7 @@ function People() {
           </p>
         }
       >
-        <Cards data={people} title={'person'} />
+        <Cards data={people} title={"person"} />
       </InfiniteScroll>
     </div>
   ) : (

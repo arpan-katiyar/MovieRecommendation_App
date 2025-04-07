@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Topnav from "../templates/Topnav";
-import Dropdown from "../templates/Dropdown";
+import Topnav from "../components/Topnav";
+import Dropdown from "../components/Dropdown";
 import axios from "../utils/axios";
-import Cards from "../templates/Cards";
+import Cards from "../components/Cards";
 import Loading from "./Loading";
 
 function Trending() {
-  
   const navigate = useNavigate();
   const [category, setCategory] = useState("all");
   const [duration, setDuration] = useState("day");
   const [trending, setTrending] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  document.title = "Movie App | Trending " +category;
+  document.title = "Movie App | Trending " + category;
 
   const getTrending = async () => {
     try {
@@ -24,10 +23,10 @@ function Trending() {
       );
       if (data.results.length > 0) {
         setTrending((previous) => [...previous, ...data.results]);
-        setPage((page)=>page+1)
+        setPage((page) => page + 1);
         console.log(data);
-      }else{
-        setHasMore(false)
+      } else {
+        setHasMore(false);
       }
     } catch (error) {
       console.log(error);
@@ -84,7 +83,7 @@ function Trending() {
           </p>
         }
       >
-        <Cards data={trending} title={category}/>
+        <Cards data={trending} title={category} />
       </InfiniteScroll>
     </div>
   ) : (

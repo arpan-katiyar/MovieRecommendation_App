@@ -9,9 +9,9 @@ import {
 } from "react-router-dom";
 import { asyncLoadPerson, removePerson } from "../store/actions/personActions";
 import Loading from "./Loading";
-import HorizontalCards from "../templates/HorizontalCards";
+import HorizontalCards from "../components/HorizontalCards";
 import noimage from "/noimage.webp";
-import Dropdown from "../templates/Dropdown";
+import Dropdown from "../components/Dropdown";
 
 function PersonDetails() {
   const { pathname } = useLocation();
@@ -144,8 +144,7 @@ function PersonDetails() {
                     {c.name || c.title || c.original_name || c.original_title}
                   </span>
                   <span className="block ml-5 mt-2">
-                  {c.character && `Character Name:${c.character}` }
-                  
+                    {c.character && `Character Name:${c.character}`}
                   </span>
                 </Link>
               </li>

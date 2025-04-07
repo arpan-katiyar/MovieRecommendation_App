@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ReactPlayer from "react-player";
-import NotFound from "../components/NotFound";
+import NotFound from "../pages/NotFound";
 
 function Trailer() {
   const { pathname } = useLocation();

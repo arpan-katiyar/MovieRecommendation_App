@@ -1,12 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { asyncLoadMovie, removeMovie } from "../store/actions/movieActions";
 import Loading from "./Loading";
-import HorizontalCards from '../templates/HorizontalCards'
-import noimage from '/noimage.webp'
+import HorizontalCards from "../components/HorizontalCards";
+import noimage from "/noimage.webp";
 function MovieDetails() {
-const {pathname}=  useLocation()
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -74,25 +80,32 @@ const {pathname}=  useLocation()
           </h1>
 
           <div className="flex mt-3 mb-5 text-white items-center gap-x-5 font-bold ">
-          <span className="bg-yellow-600  rounded-full w-[5vh] h-[5vh] text-xl text-white font-semibold flex justify-center items-center p-[3.5vh]">
-            {(info.details.vote_average * 10).toFixed()}
-            <sup>%</sup>
-          </span>
-          <h1>User Score</h1>
-          <h1>{info.details.release_date}</h1>
-          <h1>{info.details.genres.map((g)=>g.name).join(',')}</h1>
-          <h1>{info.details.runtime}min</h1>
+            <span className="bg-yellow-600  rounded-full w-[5vh] h-[5vh] text-xl text-white font-semibold flex justify-center items-center p-[3.5vh]">
+              {(info.details.vote_average * 10).toFixed()}
+              <sup>%</sup>
+            </span>
+            <h1>User Score</h1>
+            <h1>{info.details.release_date}</h1>
+            <h1>{info.details.genres.map((g) => g.name).join(",")}</h1>
+            <h1>{info.details.runtime}min</h1>
           </div>
 
-          <h1 className="text-zinc-200 text-xl font-semibold italic">{info.details.tagline}</h1>
+          <h1 className="text-zinc-200 text-xl font-semibold italic">
+            {info.details.tagline}
+          </h1>
           <h1 className="text-white text-2xl mt-5 mb-3 ">Overview</h1>
           <p className="text-white">{info.details.overview}</p>
-          <h1 className="text-white text-2xl mt-5 mb-3 ">Movie Translated In</h1>
-          <p className="text-white mb-3">{info.translations.join(', ')}</p>
-          <Link className="text-white rounded-lg bg-[#6556CD] px-3 py-2 " to={`${pathname}/trailer`}>
-          <i className="ri-play-mini-fill mr-1"></i>
-          
-          Play Trailer</Link>
+          <h1 className="text-white text-2xl mt-5 mb-3 ">
+            Movie Translated In
+          </h1>
+          <p className="text-white mb-3">{info.translations.join(", ")}</p>
+          <Link
+            className="text-white rounded-lg bg-[#6556CD] px-3 py-2 "
+            to={`${pathname}/trailer`}
+          >
+            <i className="ri-play-mini-fill mr-1"></i>
+            Play Trailer
+          </Link>
         </div>
       </div>
 
@@ -142,10 +155,13 @@ const {pathname}=  useLocation()
       </div>
       {/* part-4 recommondations */}
       <hr className="h-[2px] bg-zinc-400"></hr>
-      <h1 className="text-3xl font-bold text-white mb-3 mt-3">Recommendations & Similar stuff</h1>
-      <HorizontalCards data={info.recommendations ? info.recommendations : info.similar} />
+      <h1 className="text-3xl font-bold text-white mb-3 mt-3">
+        Recommendations & Similar stuff
+      </h1>
+      <HorizontalCards
+        data={info.recommendations ? info.recommendations : info.similar}
+      />
       <Outlet />
-      
     </div>
   ) : (
     <Loading />
