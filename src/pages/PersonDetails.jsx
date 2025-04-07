@@ -40,10 +40,11 @@ function PersonDetails() {
         {/* part 2 left poster and details */}
         <div className="w-[20%] ">
           <img
+            loading="lazy"
             className="object-cover w-[40vh]  shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
             src={
               info.details.profile_path
-                ? `https://image.tmdb.org/t/p/original/${info.details.profile_path}`
+                ? `https://image.tmdb.org/t/p/w342/${info.details.profile_path}`
                 : noimage
             }
           ></img>

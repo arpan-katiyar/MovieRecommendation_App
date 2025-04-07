@@ -27,7 +27,7 @@ function TvDetailes() {
   return info ? (
     <div
       style={{
-        background: `linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4),rgba(0,0,0,.7)),url(https://image.tmdb.org/t/p/original/${info.details.backdrop_path}})`,
+        background: `linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4),rgba(0,0,0,.7)),url(https://image.tmdb.org/t/p/original/${info.details.backdrop_path})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         // backgroundRepeat:"no-repeat"
@@ -86,8 +86,9 @@ function TvDetailes() {
             </span>
             <h1>User Score</h1>
             <h1>{info.details.first_air_date}</h1>
-            <h1>{info.details.genres.map((g) => g.name).join(",")}</h1>
-            <h1>{info.details.runtime}min</h1>
+            <h1>{info.details.genres?.map((g) => g.name).join(", ")}</h1>
+            {info.details.runtime && <h1>{info.details.runtime}min</h1>}
+
           </div>
 
           <h1 className="text-zinc-200 text-xl font-semibold italic">
@@ -101,7 +102,7 @@ function TvDetailes() {
           <p className="text-white mb-3">{info.translations.join(", ")}</p>
           <Link
             className="text-white rounded-lg bg-[#6556CD] px-3 py-2 "
-            to={`${pathname}/trailer`}
+            to="trailer"
           >
             <i className="ri-play-mini-fill mr-1"></i>
             Play Trailer
