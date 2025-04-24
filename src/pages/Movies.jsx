@@ -31,11 +31,11 @@ function Movies() {
   };
   const refreshHandler = async () => {
     if (movies.length === 0) {
-      getMovies();
+      await getMovies();
     } else {
       setPage(1);
       setMovies([]);
-      getMovies();
+      await getMovies();
     }
   };
 

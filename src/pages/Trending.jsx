@@ -34,11 +34,11 @@ function Trending() {
   };
   const refreshHandler = async () => {
     if (trending.length === 0) {
-      getTrending();
+      await getTrending();
     } else {
       setPage(1);
       setTrending([]);
-      getTrending();
+      await getTrending();
     }
   };
 

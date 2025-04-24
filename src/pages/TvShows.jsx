@@ -29,13 +29,13 @@ function TvShows() {
       console.log(error);
     }
   };
-  const refreshHandler = () => {
+  const refreshHandler =async () => {
     if (tvShows.length === 0) {
-      getTvShows();
+      await getTvShows();
     } else {
       setPage(1);
       setTvShows([]);
-      getTvShows();
+      await getTvShows();
     }
   };
 
